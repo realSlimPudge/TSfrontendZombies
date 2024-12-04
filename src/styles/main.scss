@@ -1,0 +1,129 @@
+@import "./lightTheme.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --light-theme-app-app-bg: #f4f4f4;
+    --light-theme-app-app-contrast-bg: #11519c;
+    --light-theme-element-element-bg: #fff;
+    --light-theme-element-element-bg-2: #e7e9ed;
+    --light-theme-element-element-bg-contrast: #11519c;
+    --light-theme-element-contrast-element-element-contrast-color: rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+    --light-theme-element-contrast-element-element-contrast-hover-color: rgba(
+        255,
+        255,
+        255,
+        0.2
+    );
+    --light-theme-element-contrast-element-element-contrast-pressed-color: #edeef0;
+    --light-theme-element-contrast-element-element-contrast-disabled-color: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+    --light-theme-element-contrast-element-element-contrast-bg-color: #fff;
+    --light-theme-element-contrast-element-element-contrast-hover-bg-color: #f1f4f9;
+    --light-theme-element-contrast-element-element-contrast-text-color: #38424f;
+    --light-theme-text-text-color: #38424f;
+    --light-theme-text-text-2-color: #80889d;
+    --light-theme-text-text-link-color: #1370b9;
+    --light-theme-text-text-blind-color: #c7c9cf;
+    --light-theme-text-text-contrast-color: #fff;
+    --light-theme-text-text-2-contrast-color: rgba(255, 255, 255, 0.7);
+    --light-theme-primary-primary-color: #11519c;
+    --light-theme-primary-primary-dark-color: #0e468b;
+    --light-theme-primary-primary-light-color: #1370b9;
+    --light-theme-divider-divider-color: #d2dae3;
+    --light-theme-divider-divider-contrast-color: rgba(210, 218, 227, 0.3);
+    --light-theme-gray-gray-color-1: #d3dbe0;
+    --light-theme-gray-gray-color-2: #dfe3ea;
+    --light-theme-gray-gray-color-3: #e7e9ed;
+    --light-theme-gray-gray-color-4: #e9edf2;
+    --light-theme-gray-gray-color-5: #edeef0;
+    --light-theme-gray-gray-color-6: #f1f4f9;
+    --light-theme-gray-gray-color-7: #f7f8fb;
+    --light-theme-gray-gray-color-7-contrast: rgba(247, 248, 251, 0.2);
+    --light-theme-accent-accent-color-yellow: #fdc51f;
+    --light-theme-accent-accent-dark-color-yellow: #f1b400;
+    --light-theme-accent-accent-light-color-yellow: #ffda6d;
+    --light-theme-accent-accent-color-red: #ff6363;
+    --light-theme-accent-accent-dark-color-red: #e44444;
+    --light-theme-accent-accent-light-color-red: #ffa9a9;
+    --light-theme-input-input-color: #e7e9ed;
+    --light-theme-input-input-hover-color: #dfe3ea;
+    --light-theme-input-input-disabled-color: #dfe3ea;
+    --light-theme-input-input-color-element-bg: #f1f4f9;
+    --light-theme-input-input-hover-color-element-bg: #e7e9ed;
+    --light-theme-input-input-disabled-color-element-bg: #e7e9ed;
+    --dark-theme-app-app-bg: #1c1e23;
+    --dark-theme-app-app-contrast-bg: #1b57b2;
+    --dark-theme-element-element-bg: #232935;
+    --dark-theme-element-element-bg-2: #2c3549;
+    --dark-theme-element-element-bg-contrast: #1b57b2;
+    --dark-theme-element-contrast-element-element-contrast-color: rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+    --dark-theme-element-contrast-element-element-contrast-hover-color: rgba(
+        255,
+        255,
+        255,
+        0.2
+    );
+    --dark-theme-element-contrast-element-element-contrast-pressed-color: #edeef0;
+    --dark-theme-element-contrast-element-element-contrast-disabled-color: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+    --dark-theme-element-contrast-element-element-contrast-bg-color: #fff;
+    --dark-theme-element-contrast-element-element-contrast-hover-bg-color: #f1f4f9;
+    --dark-theme-element-contrast-element-element-contrast-text-color: #38424f;
+    --dark-theme-text-text-color: #f4f4f4;
+    --dark-theme-text-text-2-color: #9ea6bb;
+    --dark-theme-text-text-link-color: #3a84f3;
+    --dark-theme-text-text-blind-color: #515b6d;
+    --dark-theme-text-text-contrast-color: #fff;
+    --dark-theme-text-text-2-contrast-color: rgba(255, 255, 255, 0.7);
+    --dark-theme-primary-primary-color: #1b57b2;
+    --dark-theme-primary-primary-dark-color: #0b3ba1;
+    --dark-theme-primary-primary-light-color: #3a84f3;
+    --dark-theme-divider-divider-color: #394358;
+    --dark-theme-divider-divider-contrast-color: rgba(210, 218, 227, 0.3);
+    --dark-theme-gray-gray-color-1: #282d40;
+    --dark-theme-gray-gray-color-2: #4d536a;
+    --dark-theme-gray-gray-color-3: #3c4257;
+    --dark-theme-gray-gray-color-4: #313745;
+    --dark-theme-gray-gray-color-5: #313649;
+    --dark-theme-gray-gray-color-6: #33384a;
+    --dark-theme-gray-gray-color-7: #2b3044;
+    --dark-theme-accent-accent-color-yellow: #fdc51f;
+    --dark-theme-accent-accent-dark-color-yellow: #e1ae15;
+    --dark-theme-accent-accent-light-color-yellow: #ffda6d;
+    --dark-theme-accent-accent-color-red: #ff6363;
+    --dark-theme-accent-accent-dark-color-red: #e44444;
+    --dark-theme-accent-accent-light-color-red: #ff8a8a;
+    --dark-theme-input-input-hover-color-element-bg: #4d536a;
+    --dark-theme-input-input-color-element-bg: #3c4257;
+    --dark-theme-input-input-hover-color: #3c4257;
+    --dark-theme-input-input-color: #33384a;
+    --dark-theme-input-input-disabled-color: rgba(60, 66, 87, 0.3);
+    --dark-theme-input-input-disabled-color-element-bg: rgba(60, 66, 87, 0.3);
+}
+
+body.dark-theme {
+    @import "./darkTheme.scss";
+}

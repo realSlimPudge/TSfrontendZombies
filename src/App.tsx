@@ -1,11 +1,14 @@
-import './App.css'
+import React from "react";
+import ThemesSwitcher from "./Components/ThemeSwitcher/ThemesSwitcher";
+import "./styles/main.scss";
 
 function App() {
-
-
-  return (
-    
-  )
+    return (
+        <div className="background">
+            <ThemesSwitcher />
+            <div className="test-dark-theme">Test Dark Theme</div>
+        </div>
+    );
 }
 
-export default App
+export default App;
