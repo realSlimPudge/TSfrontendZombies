@@ -1,12 +1,13 @@
 import React from "react";
 import ThemesSwitcher from "./Components/ThemeSwitcher/ThemesSwitcher";
+import Faculties from "./pages/Faculties/Faculties";
 import "./styles/main.scss";
 
 function App() {
     return (
         <div className="background">
             <ThemesSwitcher />
-            <div className="test-dark-theme">Test Dark Theme</div>
+            <Faculties />
         </div>
     );
 }
