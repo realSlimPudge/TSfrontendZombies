@@ -1,0 +1,37 @@
+.toggle {
+    width: 64px;
+    height: 36px;
+    background-color: var(--gray-color-3);
+    border-radius: 3.2rem;
+    position: relative;
+    cursor: pointer;
+}
+.indicator {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 70%;
+    transition: 300ms ease left;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--element-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .svg {
+        width: 70%;
+        height: 70%;
+        fill: none;
+        circle {
+            stroke: var(--text-2-color);
+        }
+        path {
+            stroke: var(--text-2-color);
+        }
+    }
+}
+.active {
+    left: 30%;
+}

@@ -1,0 +1,15 @@
+.button {
+    width: 100%;
+    height: 60px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    background-color: var(--primary-light-color);
+    color: var(--text-contrast-color);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var();
+    }
+}
