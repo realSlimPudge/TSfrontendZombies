@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from database.database import faculties
+from database.database import get_faculties_db, get_roadmaps_db
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -19,4 +19,10 @@ app.add_middleware(
 @app.get("/api/faculties/")
 def get_faculties():
     data = faculties()
+    return {"data": data}
+
+
+@app.get("/api/roadmaps/")
+def get_roadmaps():
+    data = get_roadmaps_db("TODO")
     return {"data": data}
