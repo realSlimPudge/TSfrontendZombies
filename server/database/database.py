@@ -1,9 +1,10 @@
 from pymongo import MongoClient
 import json
+import pprint
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from module.parse import get_disciplines
+from module.parse import get_disciplines, get_url_direction
 
 # Подключение к базе данных planedu
 client = MongoClient("localhost", 27017)
@@ -57,24 +58,30 @@ async def user_history():
 
 async def get_disciplines_db(direction:str):
     disciplines = db.disciplines
-    data = (disciplines.find_one({"table": 1}))
-    if data:
-        return data["disciplines"][direction]
-    else:
-       await set_disciplines_db("https://edu.donstu.ru/Plans/Plan.aspx?id=50288", direction)
-       return (disciplines.find_one({"table": 1}))["disciplines"][direction]
+    data = disciplines.find_one({"table": 1})
+    try: 
+        data = disciplines.find_one({"table": 1})["disciplines"][direction] 
+        return data
+    except:
+        await set_disciplines_db(get_url_direction(direction), direction) # Если не существует, то подкачиваем и парсим
+        return (disciplines.find_one({"table": 1}))["disciplines"][direction]
+
 
 
 async def set_disciplines_db(url: str, direction: str):
     disciplines = db.disciplines
-    get_disciplines(url, direction)
+    data_json = get_disciplines(url, direction)
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    parent_dir = os.path.dirname(script_dir)
-    file_path = os.path.join(parent_dir, f"{direction}_disciplines.json")
-    with open(file_path, 'r', encoding='utf-8') as file:
-            test = json.load(file)
+    if (disciplines.find_one({"table": 1})): # Если коллекция уже существует добавляем новый элемент
+        update_one(direction, data_json[direction])
+    else:
+        disciplines.insert_one({"disciplines": data_json, "table": 1}) # В противном случае вставляем новую коллекцию
 
 
-    disciplines.insert_one({"disciplines": test, "table": 1})
-
+def update_one(direction: str, data):
+    disciplines = db.disciplines
+    disciplines.update_one(
+    {"table": 1},  
+    {"$set": {f"disciplines.{direction}": data}} 
+)
+    
