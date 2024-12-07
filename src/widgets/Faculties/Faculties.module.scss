@@ -1,0 +1,13 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 8px;
+    background-color: var(--gray-color-7);
+    border-radius: 16px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}

@@ -18,8 +18,8 @@ app.add_middleware(
 
 @app.get("/api/faculties/")
 def get_faculties():
-    data = faculties()
-    return {"data": data}
+    data = get_faculties_db()
+    return data
 
 
 @app.get("/api/roadmaps/")

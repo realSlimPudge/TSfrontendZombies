@@ -1,0 +1,13 @@
+.btn {
+    background-color: var(--app-contrast-bg);
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    color: var(--text-contrast-color);
+    border-radius: 12px;
+    font-size: 32px;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    height: 100%;
+}

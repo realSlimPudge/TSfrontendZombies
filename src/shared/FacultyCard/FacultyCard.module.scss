@@ -1,0 +1,30 @@
+.content {
+    width: 200px;
+    height: 100px;
+    background-color: var(--gray-color-5);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 200ms all ease;
+
+    &:hover {
+        background-color: var(--gray-color-6);
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 20px;
+        width: 80%;
+        word-break: break-word;
+    }
+}
+.active {
+    background-color: var(--element-bg-contrast);
+    color: var(--text-contrast-color);
+
+    &:hover {
+        background-color: var(--element-bg-contrast);
+    }
+}
