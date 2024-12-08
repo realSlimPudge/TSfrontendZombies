@@ -10,7 +10,7 @@ export interface Direction {
 }
 
 export interface Faculty {
-    _id: string;
+    id: string;
     title: string;
     directions: Direction[];
 }
@@ -49,8 +49,7 @@ const facultiesSlice = createSlice({
         setCurrentFaculty: (state, action) => {
             const facultyId = action.payload;
             state.currentFaculty =
-                state.data?.find((faculty) => faculty._id === facultyId) ||
-                null;
+                state.data?.find((faculty) => faculty.id === facultyId) || null;
             state.currentDirection = null;
         },
         setCurrentDirection: (state, action) => {

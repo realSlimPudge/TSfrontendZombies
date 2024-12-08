@@ -12,11 +12,11 @@ interface FacultyCardProps {
 const FacultyCard: React.FC<FacultyCardProps> = ({ title, info }) => {
     const [active, setActive] = useState<boolean>(false);
     const id = useSelector(
-        (state: RootState) => state.faculties.currentFaculty?._id
+        (state: RootState) => state.faculties.currentFaculty?.id
     );
 
     useEffect(() => {
-        if (id === info._id) {
+        if (id === info.id) {
             setActive(true);
         } else {
             setActive(false);
@@ -25,7 +25,7 @@ const FacultyCard: React.FC<FacultyCardProps> = ({ title, info }) => {
 
     const dispatch = useDispatch();
     const selectFaculty = () => {
-        dispatch(setCurrentFaculty(info._id));
+        dispatch(setCurrentFaculty(info.id));
     };
     return (
         <div

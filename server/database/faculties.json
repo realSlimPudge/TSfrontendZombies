@@ -21,20 +21,32 @@
                 {
                     "name": "ВИАС",
                     "subjects": ["Техническая документация", "История России"]
+                },
+                {
+                    "name": "ВПР",
+                    "subjects": []
                 }
             ]
         },
         {
             "id": "2",
-            "title": "ITHub",
+            "title": "АМиУ",
             "directions": [
                 {
-                    "name": "Java",
-                    "subjects": ["Java", "Макроэкономика"]
+                    "name": "УМТ",
+                    "subjects": []
                 },
                 {
-                    "name": "FrontEnd",
-                    "subjects": ["React", "HTML, CSS"]
+                    "name": "УЗМТ",
+                    "subjects": []
+                },
+                {
+                    "name": "УНЭ",
+                    "subjects": []
+                },
+                {
+                    "name": "ПФМ",
+                    "subjects": []
                 }
             ]
         },
@@ -43,12 +55,20 @@
             "title": "АгроПромышленный",
             "directions": [
                 {
-                    "name": "Виноделие",
-                    "subjects": ["Вины", "Дегустация"]
+                    "name": "ЭИБ",
+                    "subjects": []
                 },
                 {
-                    "name": "Фермерство",
-                    "subjects": ["Сажание пшена", "Комбайны"]
+                    "name": "АТК",
+                    "subjects": []
+                },
+                {
+                    "name": "АЗТК",
+                    "subjects": []
+                },
+                {
+                    "name": "АБ",
+                    "subjects": []
                 }
             ]
         },
@@ -57,12 +77,20 @@
             "title": "Авиастроительный",
             "directions": [
                 {
-                    "name": "История России",
-                    "subjects": ["История искусства", "Техники живописи"]
+                    "name": "АВЗТ",
+                    "subjects": []
                 },
                 {
-                    "name": "Авиадинамика",
-                    "subjects": ["Зомби", "Коровы"]
+                    "name": "АВЭ",
+                    "subjects": []
+                },
+                {
+                    "name": "АВТ",
+                    "subjects": []
+                },
+                {
+                    "name": "АВЗН",
+                    "subjects": []
                 }
             ]
         }
