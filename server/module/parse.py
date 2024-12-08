@@ -27,9 +27,7 @@ def get_disciplines(url: str, direction_name: str):
                 ac_elements = parent_element.find_all(class_="dxgv dx-ac") # Все элементы с классом как у курса и семестра
                 kyrs = ac_elements[2]
                 semestr = ac_elements[3]
-                file_url = a_tag['href']
-                if not file_url.startswith('http'):
-                    file_url = os.path.join(url, file_url)
+
 
                 disciplines[f'{direction_name}'].append(
                     {"name": filename.get_text(),
@@ -39,9 +37,8 @@ def get_disciplines(url: str, direction_name: str):
                      )
                 
         return disciplines
-        # Записываем результат в JSON файл
-        with open(f'{direction_name}_disciplines.json', 'w', encoding='utf-8') as json_file:
-            json.dump(disciplines, json_file, ensure_ascii=False, indent=4)
+    else:
+        return("ПИДОР")
 
 def get_pdf(name):
     # Ссылка на учебный план ДГТУ
