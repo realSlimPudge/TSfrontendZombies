@@ -1,0 +1,17 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    height: 620px;
+    background-color: var(--element-bg);
+    padding: 16px;
+    border-radius: 8px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    height: 100%;
+    overflow: auto;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+}

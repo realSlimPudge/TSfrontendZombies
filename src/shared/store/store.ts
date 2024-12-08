@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import facultiesReducer from "../slices/facultiesSlice";
+import disciplinesReducer from "../slices/disciplinesSlice";
 
 const store = configureStore({
     reducer: {
         faculties: facultiesReducer,
+        disciplines: disciplinesReducer,
     },
 });
 
