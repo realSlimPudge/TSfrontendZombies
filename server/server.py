@@ -25,7 +25,7 @@ class Subject(BaseModel):
     subjects: List[str]
 
 class Department(BaseModel):
-    _id: str
+    id: str
     title: str
     directions: List[Subject]
 
@@ -34,17 +34,17 @@ class Faculties(BaseModel):
 
 ### API ДЛЯ БАЗЫ ДАННЫХ ##
 @app.get("/api/faculties/")
-async def get_faculties() -> Faculties:
-    data = await get_faculties_db()
+def get_faculties() -> Faculties:
+    data = get_faculties_db()
     return data
 
 @app.get("/api/roadmaps/")
-async def get_roadmaps():
-    data = await get_roadmaps_db("")
+def get_roadmaps():
+    data = get_roadmaps_db("")
     return {"data": data}
 
 
 @app.get("/api/get_disciplines/{direction}")
-async def get_disciplines(direction: str) -> object:
-    data = await get_disciplines_db(direction)
+def get_disciplines(direction: str) -> object:
+    data = get_disciplines_db(direction)
     return data

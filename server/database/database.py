@@ -9,7 +9,7 @@ from module.parse import get_disciplines, get_url_direction
 client = MongoClient("localhost", 27017)
 db = client.planedu
 
-async def get_faculties_db():
+def get_faculties_db():
     #Подключение к папке факультеты
     faculties = db.faculties
     data = (faculties.find_one({"table": 1}))
@@ -28,9 +28,9 @@ async def get_faculties_db():
 
 
 
+ 
 
-
-async def get_roadmaps_db(discipline:str):
+def get_roadmaps_db(discipline:str):
     roadmaps = db.roadmaps
     data = (roadmaps.find_one({"table": 1}))
     if data:
@@ -51,23 +51,23 @@ async def get_roadmaps_db(discipline:str):
             return data["roadmaps"]
 
 
-async def user_history():
+def user_history():
     histories = db.histories
 
 
-async def get_disciplines_db(direction:str):
+def get_disciplines_db(direction:str):
     disciplines = db.disciplines
     data = disciplines.find_one({"table": 1})
     try: 
         data = disciplines.find_one({"table": 1})["disciplines"][direction] 
         return data
     except:
-        await set_disciplines_db(get_url_direction(direction), direction) # Если не существует, то подкачиваем и парсим
+        set_disciplines_db(get_url_direction(direction), direction) # Если не существует, то подкачиваем и парсим
         return (disciplines.find_one({"table": 1}))["disciplines"][direction]
 
 
 
-async def set_disciplines_db(url: str, direction: str):
+def set_disciplines_db(url: str, direction: str):
     disciplines = db.disciplines
     data_json = get_disciplines(url, direction)
 
