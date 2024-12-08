@@ -6,6 +6,10 @@ import json
 
 def get_disciplines(url: str, direction_name: str):
 
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    file_path = os.path.join(script_dir, f"{direction_name}.json")
+    with open(file_path, "r", encoding='utf-8') as file:
+        return json.load(file)
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -36,9 +40,8 @@ def get_disciplines(url: str, direction_name: str):
                     }
                      )
                 
-        return disciplines
-    else:
-        return("ПИДОР")
+        with open(f'{direction_name}.json', 'w', encoding='utf-8') as json_file:
+            json.dump(disciplines, json_file, ensure_ascii=False, indent=4)
 
 def get_pdf(name):
     # Ссылка на учебный план ДГТУ
