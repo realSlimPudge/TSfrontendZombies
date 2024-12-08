@@ -1,0 +1,68 @@
+{
+  "id": "vpr",
+  "name": "Математическое образование",
+  "type": "section",
+  "optional": false,
+  "children": [
+    {
+      "id": "math-basics",
+      "name": "Основы математики",
+      "children": [
+        {
+          "id": "algebra",
+          "name": "Алгебра",
+          "children": [
+            {
+              "id": "linear-equations",
+              "name": "Линейные уравнения",
+              "children": [
+                {
+                  "id": "linear-systems",
+                  "name": "Системы линейных уравнений"
+                },
+                {
+                  "id": "solving-methods",
+                  "name": "Методы решения"
+                }
+              ]
+            },
+            {
+              "id": "quadratic-equations",
+              "name": "Квадратные уравнения",
+              "children": [
+                {
+                  "id": "discriminant",
+                  "name": "Дискриминант"
+                },
+                {
+                  "id": "vieta",
+                  "name": "Теорема Виета"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "geometry",
+          "name": "Геометрия",
+          "children": [
+            {
+              "id": "planimetry",
+              "name": "Планиметрия",
+              "children": [
+                {
+                  "id": "triangles",
+                  "name": "Треугольники"
+                },
+                {
+                  "id": "circles",
+                  "name": "Окружности"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

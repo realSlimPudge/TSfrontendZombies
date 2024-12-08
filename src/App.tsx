@@ -1,13 +1,11 @@
 import React from "react";
-import ThemesSwitcher from "./Components/ThemeSwitcher/ThemesSwitcher";
-import Faculties from "./pages/Faculties/Faculties";
+import Roadmap from "./pages/Roadmap/Roadmap";
 import "./styles/main.scss";
 
 function App() {
     return (
         <div className="background">
-            <ThemesSwitcher />
-            <Faculties />
+            <Roadmap/>
         </div>
     );
 }
