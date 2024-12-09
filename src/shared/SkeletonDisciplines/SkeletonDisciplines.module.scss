@@ -1,0 +1,41 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.content {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+.sorting {
+    width: 100%;
+    height: 75px;
+    background-color: var(--element-bg);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        width: 30%;
+        height: 100%;
+        background-color: var(--gray-color-3);
+        border-radius: 8px;
+    }
+}
+.disciplines {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    height: 530px;
+    border-radius: 8px;
+    background-color: var(--element-bg);
+    padding: 16px;
+}

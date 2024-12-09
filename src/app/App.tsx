@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage/ui/LoginPage";
 import HomePage from "../pages/HomePage/ui/HomePage";
 import NotFound from "../pages/NotFound/ui/NotFound";
 import DisciplinesPage from "../pages/DisciplinesPage/DisicplinesPage";
+import Roadmap from "../pages/Roadmap/Roadmap";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         path="/home/:faculty/:direction"
                         element={<DisciplinesPage />}
                     />
+                    <Route path="/:roadmap" />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>

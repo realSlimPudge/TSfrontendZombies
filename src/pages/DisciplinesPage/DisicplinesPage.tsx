@@ -9,6 +9,7 @@ import { RootState } from "../../shared/store/store";
 import Disciplines from "../../widgets/Disciplines/Disciplines";
 import DisciplinesItem from "../../shared/DisciplinesItem/DisciplinesItem";
 import styles from "./Disciplines.module.scss";
+import SkeletonDisciplines from "../../shared/SkeletonDisciplines/SkeletonDisciplines";
 
 const DisciplinesPage: React.FC = () => {
     const { faculty, direction } = useParams<{
@@ -55,7 +56,7 @@ const DisciplinesPage: React.FC = () => {
         }) || [];
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <SkeletonDisciplines />;
     }
 
     if (error) {
