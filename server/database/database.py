@@ -6,10 +6,24 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from module.parse import get_disciplines, get_url_direction
 
 # Подключение к базе данных planedu
-client = MongoClient("localhost", 27017)
+client = MongoClient("mongodb://mongo:27017")#client = MongoClient("localhost", 27017)("mongodb://mongo:27017")
+
 db = client.planedu
 
-def get_faculties_db():
+ 
+
+async def create_tables():
+    db.create_collection('faculties')
+    db.create_collection('roadmaps')
+    db.create_collection('disciplines')
+
+async def delete_tables():
+    db.faculties.drop()
+    db.roadmaps.drop()
+    db.disciplines.drop()
+    print("Коллекции удалены")
+
+async def get_faculties_db():
     #Подключение к папке факультеты
     faculties = db.faculties
     data = (faculties.find_one({"table": 1}))
@@ -28,9 +42,9 @@ def get_faculties_db():
 
 
 
- 
 
-def get_roadmaps_db(discipline:str):
+
+async def get_roadmaps_db(discipline:str):
     roadmaps = db.roadmaps
     data = (roadmaps.find_one({"table": 1}))
     if data:
@@ -51,23 +65,23 @@ def get_roadmaps_db(discipline:str):
             return data["roadmaps"]
 
 
-def user_history():
+async def user_history():
     histories = db.histories
 
 
-def get_disciplines_db(direction:str):
+async def get_disciplines_db(direction:str):
     disciplines = db.disciplines
     data = disciplines.find_one({"table": 1})
     try: 
         data = disciplines.find_one({"table": 1})["disciplines"][direction] 
         return data
     except:
-        set_disciplines_db(get_url_direction(direction), direction) # Если не существует, то подкачиваем и парсим
+        await set_disciplines_db(get_url_direction(direction), direction) # Если не существует, то подкачиваем и парсим
         return (disciplines.find_one({"table": 1}))["disciplines"][direction]
 
 
 
-def set_disciplines_db(url: str, direction: str):
+async def set_disciplines_db(url: str, direction: str):
     disciplines = db.disciplines
     data_json = get_disciplines(url, direction)
 

@@ -1,9 +1,32 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from contextlib import asynccontextmanager
 from database.database import get_faculties_db, get_roadmaps_db, get_disciplines_db
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
-app = FastAPI()
+from database.database import get_faculties_db, get_roadmaps_db, get_disciplines_db, create_tables,  delete_tables
+
+
+
+
+
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await delete_tables()
+    print('База очищена')
+    await create_tables()
+    print('База готова')
+    yield
+    print("Выключение")
+
+
+
+
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 origins = ["*"]
