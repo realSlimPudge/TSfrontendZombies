@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactFlow, { Controls, Background, useNodesState, useEdgesState, Position } from 'reactflow';
 import 'reactflow/dist/style.css';
 import dagre from 'dagre';
-import roadmapData from '../../data/roadmap.json';
+import roadmapData from '../../data/roadmap2.json';
 
 // Настройка dagre для вертикального расположения
 const dagreGraph = new dagre.graphlib.Graph();
