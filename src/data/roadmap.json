@@ -1,0 +1,61 @@
+{
+  "data": {
+    "categories": [
+      {
+        "name": "Introduction to Programming",
+        "topics": [
+          "What is Programming?",
+          "Introduction to Variables and Data Types",
+          "Control Flow: If/Else Statements",
+          "Loops: For and While",
+          "Functions and Parameters",
+          "Introduction to Debugging"
+        ]
+      },
+      {
+        "name": "Data Structures",
+        "topics": [
+          "Arrays and Lists",
+          "Stacks and Queues",
+          "Hash Maps and Dictionaries",
+          "Binary Trees",
+          "Graph Basics",
+          "Algorithms: Sorting and Searching"
+        ]
+      },
+      {
+        "name": "Web Development",
+        "topics": [
+          "HTML Basics",
+          "CSS for Styling",
+          "JavaScript Essentials",
+          "Building Your First Webpage",
+          "Client-Server Communication",
+          "Introduction to Frameworks (React, Angular)"
+        ]
+      },
+      {
+        "name": "Machine Learning",
+        "topics": [
+          "What is Machine Learning?",
+          "Supervised vs Unsupervised Learning",
+          "Linear Regression",
+          "Decision Trees",
+          "Neural Networks Basics",
+          "Building Your First Model"
+        ]
+      },
+      {
+        "name": "Advanced Topics",
+        "topics": [
+          "Distributed Systems",
+          "Cloud Computing",
+          "Big Data Analytics",
+          "Cybersecurity Basics",
+          "DevOps Fundamentals",
+          "Continuous Integration and Delivery"
+        ]
+      }
+    ]
+  }
+}

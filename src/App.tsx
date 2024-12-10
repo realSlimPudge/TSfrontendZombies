@@ -1,13 +1,13 @@
-import React from "react";
-import Roadmap from "./pages/Roadmap/Roadmap";
-import "./styles/main.scss";
+import React from 'react';
+import Roadmap from './Components/Roadmap/Roadmap';
 
-function App() {
-    return (
-        <div className="background">
-            <Roadmap/>
-        </div>
-    );
-}
+const App: React.FC = () => {
+  return (
+    <div>
+      <h1>RoadMapCh1k</h1>
+      <Roadmap />
+    </div>
+  );
+};
 
 export default App;
