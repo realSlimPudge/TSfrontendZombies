@@ -1,58 +1,56 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 
-const server = import.meta.env.VITE_SERVER;
+const server = import.meta.env.VITE_SERVER
 
 interface Disciplines {
-    discipline: Discipline[];
+	discipline: Discipline[]
 }
 export interface Discipline {
-    name: string;
-    course: string;
-    semester: string;
+	name: string
+	course: string
+	semester: string
 }
 
 interface DisciplinesState {
-    data: Disciplines | null;
-    loading: boolean;
-    error: string | null;
+	data: Disciplines | null
+	loading: boolean
+	error: string | null
 }
 
 const initialState: DisciplinesState = {
-    data: null,
-    loading: false,
-    error: null,
-};
+	data: null,
+	loading: false,
+	error: null,
+}
 
 export const getDisciplines = createAsyncThunk(
-    "disciplines/getDisciplines",
-    async (api) => {
-        const response = await axios.get(
-            `${server}/api/get_disciplines/${api}`
-        );
-        await console.log(response.data);
-        return response.data;
-    }
-);
+	'disciplines/getDisciplines',
+	async api => {
+		const response = await axios.get(`${server}/api/get_disciplines/${api}`)
+		await console.log(response.data)
+		return response.data
+	}
+)
 
 const disciplinesSlice = createSlice({
-    name: "disciplines",
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(getDisciplines.pending, (state) => {
-                state.loading = true;
-                state.error = null;
-            })
-            .addCase(getDisciplines.fulfilled, (state, action) => {
-                state.loading = false;
-                state.data = action.payload;
-            })
-            .addCase(getDisciplines.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.error.message || "Unknown error";
-            });
-    },
-});
-export default disciplinesSlice.reducer;
+	name: 'disciplines',
+	initialState,
+	reducers: {},
+	extraReducers: builder => {
+		builder
+			.addCase(getDisciplines.pending, state => {
+				state.loading = true
+				state.error = null
+			})
+			.addCase(getDisciplines.fulfilled, (state, action) => {
+				state.loading = false
+				state.data = action.payload
+			})
+			.addCase(getDisciplines.rejected, (state, action) => {
+				state.loading = false
+				state.error = action.error.message || 'Unknown error'
+			})
+	},
+})
+export default disciplinesSlice.reducer
