@@ -1,0 +1,14 @@
+.container {
+	width: 90%;
+	margin: 0 auto;
+	height: calc(100vh - 100px);
+	overflow: hidden;
+	border-radius: 16px;
+	border: 2px solid;
+	border-color: var(--element-bg);
+	transition: ease 500ms all;
+
+	&:hover {
+		border-color: var(--text-link-color);
+	}
+}
