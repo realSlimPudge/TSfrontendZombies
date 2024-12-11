@@ -8,6 +8,14 @@ services:
         volumes:
             - mongo_data:/data/db
 
+    ollama:
+        image: ollama/ollama
+        ports:
+            - 11434:11434/tcp
+        volumes:
+            - /var/opt/data/ollama/ollama:/root/.ollama
+        runtime: nvidia
+
     fastapi_app:
         image: c0dys/python-fastapi_app:latest
         container_name: fastapi_app
@@ -16,8 +24,10 @@ services:
             - "8000:8000"
         environment:
             MONGO_URL: "mongodb://mongo:27017"
+            OLLAMA_BASE_URL: "http://ollama:11434"
         depends_on:
             - mongo
+            - ollama
 
 volumes:
     mongo_data:
