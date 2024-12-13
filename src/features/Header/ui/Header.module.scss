@@ -6,6 +6,9 @@
     display: flex;
     transform: translateY(-100%);
     transition: 300ms ease transform;
+    background-color: var(--app-bg);
+    position: relative;
+    z-index: 5;
 }
 .content {
     width: 90%;

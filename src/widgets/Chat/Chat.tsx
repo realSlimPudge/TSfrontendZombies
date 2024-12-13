@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Chat.module.scss";
 import axios from "axios";
+import ChatHeader from "../../features/ChatHeader/ChatHeader";
 
 interface Message {
     id: string;
@@ -151,6 +152,7 @@ const Chat: React.FC = () => {
     return (
         <div className={styles.container}>
             <div className={styles.layout}></div>
+
             <div className={styles.messageContainer}>
                 <div className={styles.messages}>
                     {messages.map((mes) => (

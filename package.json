@@ -20,7 +20,8 @@
         "react-router-dom": "^7.0.2",
         "reactflow": "^11.11.4",
         "redux-thunk": "^3.1.0",
-        "sass": "^1.82.0"
+        "sass": "^1.82.0",
+        "styled-components": "^6.1.13"
     },
     "devDependencies": {
         "@eslint/js": "^9.15.0",

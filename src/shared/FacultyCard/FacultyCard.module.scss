@@ -1,5 +1,6 @@
 .content {
-    width: 200px;
+    max-width: 200px;
+    min-width: 100px;
     height: 100px;
     background-color: var(--gray-color-6);
     border-radius: 8px;
@@ -13,13 +14,12 @@
         background-color: var(--gray-color-3);
         color: var(--text-link-color);
     }
-
-    h2 {
-        text-align: center;
-        font-size: 20px;
-        width: 80%;
-        word-break: break-word;
-    }
+}
+.titleCard {
+    text-align: center;
+    font-size: 20px;
+    width: 80%;
+    word-break: break-word;
 }
 .active {
     background-color: var(--element-bg-contrast);
@@ -28,5 +28,13 @@
     &:hover {
         background-color: var(--element-bg-contrast);
         color: var(--text-contrast-color);
+    }
+}
+@media screen and (max-width: 440px) {
+    .titleCard {
+        font-size: 14px;
+    }
+    .content {
+        height: 80px;
     }
 }

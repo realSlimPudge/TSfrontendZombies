@@ -8,7 +8,7 @@ interface DirectionsProps {
 const Directions: React.FC<DirectionsProps> = ({ children }) => {
     return (
         <div className={styles.content}>
-            <h2>Выберите направления:</h2>
+            <h2 className={styles.title}>Выберите направления:</h2>
             <div className={styles.grid}>{children}</div>
         </div>
     );

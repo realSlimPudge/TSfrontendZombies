@@ -6,6 +6,7 @@ import { getRoadmap } from "../../shared/slices/roadmapSlice";
 import { RootState } from "../../shared/store/store";
 import RoadMap from "../../processes/RoadMap/RoadMap";
 import Chat from "../../widgets/Chat/Chat";
+import ChatHeader from "../../features/ChatHeader/ChatHeader";
 
 const Roadmap: React.FC = () => {
     const { discipline, linkId } = useParams<{
@@ -31,12 +32,14 @@ const Roadmap: React.FC = () => {
 
     return (
         <div className={styles.pageContainer}>
-            {discipline}
             <div className={styles.container}>
                 <div className={styles.roadmap}>
+                    <div className={styles.layout}>{discipline}</div>
+
                     <RoadMap />
                 </div>
                 <div className={styles.chat}>
+                    <ChatHeader />
                     <Chat />
                 </div>
             </div>

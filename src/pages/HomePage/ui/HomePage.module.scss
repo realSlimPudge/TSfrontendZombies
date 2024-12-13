@@ -12,6 +12,7 @@
     row-gap: 32px;
     transform: translateY(0);
     transition: 500ms transform ease;
+    z-index: 1;
 }
 .title {
     p {
@@ -23,7 +24,7 @@
     display: flex;
     column-gap: 32px;
     margin: 0 auto;
-    width: fit-content;
+    width: auto;
 }
 .btn {
     margin: 0 auto;
@@ -34,10 +35,36 @@
     height: 67px;
 }
 
+.direction {
+    opacity: 0;
+    transition: 500ms ease all;
+}
+.direction.directionVisible {
+    opacity: 1;
+}
+
 .btn.visible {
     opacity: 1;
     transform: scale(1);
 }
 .span {
     font-weight: 400;
+}
+@media screen and (max-width: 930px) {
+    .flex {
+        padding-top: 20px;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .btn {
+        width: auto;
+    }
+    .content {
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 440px) {
+    .content {
+        padding-top: 50px;
+    }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import ThemesSwitcher from "../../../processes/ThemeSwitcher/ThemesSwitcher";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../shared/store/store";
 
@@ -22,6 +22,15 @@ const Header: React.FC = () => {
         }, 0);
     };
 
+    const location = useLocation();
+    const profileVisible = () => {
+        if (location.pathname === "/") {
+            return null;
+        } else {
+            return <div>Выйти</div>;
+        }
+    };
+
     useEffect(() => {
         headerVisible();
     }, []);
@@ -34,7 +43,7 @@ const Header: React.FC = () => {
                 <Link to="/" className={styles.logo}>
                     PlanEdu
                 </Link>
-                {currentFaculty ? (
+                {/* {currentFaculty ? (
                     <div>
                         {currentDirection ? (
                             <>
@@ -48,12 +57,12 @@ const Header: React.FC = () => {
                     </div>
                 ) : (
                     "Выберите направление"
-                )}
+                )} */}
                 {/* {currentFaculty ? currentFaculty : "Выберите факультет"}
                 {currentDirection ? currentDirection : "Выберите направление"} */}
                 <div className={styles.buttons}>
                     <ThemesSwitcher />
-                    <div>Выйти</div>
+                    {profileVisible()}
                 </div>
             </div>
         </header>

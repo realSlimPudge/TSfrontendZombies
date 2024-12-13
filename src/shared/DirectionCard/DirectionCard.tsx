@@ -31,7 +31,7 @@ const DirectionCard: React.FC<DirectionCardProps> = ({ title }) => {
             className={`${styles.content} ${active ? styles.active : ""}`}
             onClick={selectDirection}
         >
-            <h2>{title}</h2>
+            <h2 className={styles.titleCard}>{title}</h2>
         </div>
     );
 };

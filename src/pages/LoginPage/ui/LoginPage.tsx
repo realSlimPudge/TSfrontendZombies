@@ -14,11 +14,9 @@ const LoginPage: React.FC = () => {
             <div className={styles.img}>
                 <svg
                     data-name="Layer 1"
-                    xmlns="http://www.w3.org/2000/svg"
                     width="869.99994"
                     height="520.13854"
                     viewBox="0 0 869.99994 520.13854"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                     <path
                         d="M831.09242,704.18737c-11.13833-9.4118-17.90393-24.27967-16.12965-38.75366s12.76358-27.78,27.01831-30.85364,30.50415,5.43465,34.83378,19.3594c2.3828-26.84637,5.12854-54.81757,19.40179-77.67976,12.92407-20.70115,35.3088-35.51364,59.5688-38.16357s49.80265,7.35859,64.93272,26.50671,18.83461,46.98549,8.2379,68.96911c-7.80623,16.19456-22.188,28.24676-37.2566,38.05184a240.45181,240.45181,0,0,1-164.45376,35.97709Z"
@@ -166,7 +164,9 @@ const LoginPage: React.FC = () => {
                         </NavigationBtn>
                     </div>
                     <div>
-                        <NavigationBtn navigate="/home">Назад</NavigationBtn>
+                        <NavigationBtn navigate="/home" back={true}>
+                            На главную
+                        </NavigationBtn>
                     </div>
                 </div>
                 <div className={styles.support}>

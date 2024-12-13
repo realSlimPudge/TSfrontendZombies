@@ -68,6 +68,16 @@ const HomePage: React.FC = () => {
         }
     }, [isVisible]);
 
+    const [showDirections, setShowDirections] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (currentFaculty) {
+            setShowDirections(true);
+        } else {
+            setShowDirections(false);
+        }
+    }, [currentFaculty]);
+
     return (
         <div className={styles.container}>
             <div
@@ -86,14 +96,21 @@ const HomePage: React.FC = () => {
                             ))}
                     </Faculties>
 
-                    <Directions>
-                        {currentFaculty &&
-                            currentFaculty.directions.map(
+                    {/* <div
+                        className={`${styles.direction} ${
+                            showDirections ? styles.directionVisible : ""
+                        }`}
+                    > */}
+                    {currentFaculty && (
+                        <Directions>
+                            {currentFaculty.directions.map(
                                 (el: Direction, i: number) => (
                                     <DirectionCard key={i} title={el.name} />
                                 )
                             )}
-                    </Directions>
+                        </Directions>
+                    )}
+                    {/* </div> */}
                 </div>
                 <div
                     className={`${styles.btn} ${

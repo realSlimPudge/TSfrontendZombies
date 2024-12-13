@@ -51,6 +51,10 @@
     --input-disabled-color-element-bg: #e7e9ed;
 }
 
+.react-flow__attribution {
+    display: none !important;
+}
+
 body[data-theme="dark"] {
     --app-bg: #1e1e1e;
     --app-contrast-bg: #1b57b2;

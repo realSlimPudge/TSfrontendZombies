@@ -32,7 +32,7 @@ const FacultyCard: React.FC<FacultyCardProps> = ({ title, info }) => {
             className={`${styles.content} ${active ? styles.active : ""}`}
             onClick={selectFaculty}
         >
-            <h2>{title}</h2>
+            <h2 className={styles.titleCard}>{title}</h2>
         </div>
     );
 };

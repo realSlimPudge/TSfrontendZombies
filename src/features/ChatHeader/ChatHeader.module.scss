@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    height: 10%;
+    background-color: var(--element-bg);
+    z-index: 3;
+    transform: translateY(0px);
+}
+.content {
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+}
+.options {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    align-items: center;
+}
+.option {
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+}
+.btn {
+    height: 100%;
+}

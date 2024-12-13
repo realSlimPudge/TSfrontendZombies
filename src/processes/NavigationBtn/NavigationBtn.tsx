@@ -6,9 +6,15 @@ interface BtnProps {
     children: React.ReactNode;
     navigate?: string;
     url?: string;
+    back?: boolean;
 }
 
-const NavigationBtn: React.FC<BtnProps> = ({ children, navigate, url }) => {
+const NavigationBtn: React.FC<BtnProps> = ({
+    back,
+    children,
+    navigate,
+    url,
+}) => {
     const navigation = useNavigate();
     const handleClick = () => {
         if (navigate) {
@@ -20,7 +26,10 @@ const NavigationBtn: React.FC<BtnProps> = ({ children, navigate, url }) => {
     };
 
     return (
-        <button className={styles.button} onClick={handleClick}>
+        <button
+            className={`${styles.button} ${back ? styles.backBtn : ""}`}
+            onClick={handleClick}
+        >
             {children}
         </button>
     );

@@ -11,3 +11,21 @@
     width: fit-content;
     height: 100%;
 }
+@media screen and (max-width: 780px) {
+    .btn {
+        font-size: 20px;
+        height: 80%;
+    }
+}
+@media screen and (max-width: 440px) {
+    .btn {
+        font-size: 16px;
+        height: 70%;
+    }
+}
+@media screen and (max-width: 380px) {
+    .btn {
+        font-size: 14px;
+        height: 70%;
+    }
+}
