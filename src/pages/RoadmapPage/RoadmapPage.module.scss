@@ -5,13 +5,18 @@
     display: flex;
     justify-content: space-between;
 }
+.pageContainer {
+}
 .roadmap {
-    width: 65%;
+    width: 60%;
     height: 100%;
     overflow: hidden;
     border-radius: 16px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     border: 2px solid;
-    border-color: var(--element-bg);
+    border-right: 1px solid;
+    border-color: var(--divider-color);
     transition: ease 500ms all;
 
     &:hover {
@@ -19,12 +24,15 @@
     }
 }
 .chat {
-    width: 30%;
+    width: 40%;
     height: 100%;
     overflow: hidden;
     border-radius: 16px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     border: 2px solid;
-    border-color: var(--element-bg);
+    border-left: 1px solid;
+    border-color: var(--divider-color);
     transition: ease 500ms all;
 
     &:hover {

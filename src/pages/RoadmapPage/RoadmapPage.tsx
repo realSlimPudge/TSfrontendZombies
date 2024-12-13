@@ -30,7 +30,7 @@ const Roadmap: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className={styles.pageContainer}>
             {discipline}
             <div className={styles.container}>
                 <div className={styles.roadmap}>

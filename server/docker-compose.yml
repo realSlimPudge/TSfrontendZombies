@@ -7,6 +7,8 @@ services:
             - "27017:27017"
         volumes:
             - mongo_data:/data/db
+        networks:
+            - planedu_network # Добавляем общую сеть
 
     ollama:
         image: ollama/ollama
@@ -15,6 +17,8 @@ services:
         volumes:
             - /var/opt/data/ollama/ollama:/root/.ollama
         runtime: nvidia
+        networks:
+            - planedu_network # Добавляем общую сеть
 
     fastapi_app:
         image: c0dys/python-fastapi_app:latest
@@ -25,9 +29,16 @@ services:
         environment:
             MONGO_URL: "mongodb://mongo:27017"
             OLLAMA_BASE_URL: "http://ollama:11434"
+            SEARXNG_BASE_URL: "http://searxng:8080"
         depends_on:
             - mongo
             - ollama
+        networks:
+            - planedu_network # Добавляем общую сеть
 
 volumes:
     mongo_data:
+
+networks:
+    planedu_network: # Определяем общую сеть
+        external: true
