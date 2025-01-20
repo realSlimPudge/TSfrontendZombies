@@ -46,6 +46,23 @@
         animation: ease loading 2000ms infinite;
     }
 }
+
+.disciplineBtn {
+    color: black;
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 10px 8px;
+    color: var(--text-color);
+    outline: none;
+    border: 2px solid var(--primary-dark-color);
+    cursor: pointer;
+    transition: 300ms ease all;
+
+    &:hover {
+        color: var(--element-contrast-bg-color);
+        background-color: var(--primary-dark-color);
+    }
+}
 @keyframes loading {
     0% {
         left: -20%;

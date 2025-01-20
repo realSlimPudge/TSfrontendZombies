@@ -36,7 +36,9 @@ const DisciplinesItem: React.FC<DisciplinesItem> = ({ info }) => {
                     <span>Семестр: {info.semester}</span>
                 </div>
                 <div>
-                    <button onClick={redirect}>Перейти к roadmap</button>
+                    <button onClick={redirect} className={styles.disciplineBtn}>
+                        Перейти к roadmap
+                    </button>
                 </div>
             </div>
         </div>
