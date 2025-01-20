@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./Chat.module.scss";
 import axios from "axios";
 import ChatHeader from "../../features/ChatHeader/ChatHeader";
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeMathjax from 'rehype-mathjax';
+
 
 interface Message {
     id: string;
@@ -139,16 +143,20 @@ const Chat: React.FC = () => {
     }, [inputText]);
 
     const formatText = (text: string) => {
-        if (text) {
-            return text.split("/n").map((line, index) => (
-                <p key={index} className={styles.messageParagraph}>
-                    {line}
-                </p>
-            ));
-        } else {
-            return <p>Загрузка</p>;
-        }
-    };
+        if (!text) return <p>Загрузка...</p>;
+      
+        return text.split("/n").map((line, index) => (
+          <div key={index} className={styles.messageParagraph}>
+            <ReactMarkdown
+              remarkPlugins={[remarkMath]}
+              rehypePlugins={[rehypeMathjax]}
+            >
+              {line}
+            </ReactMarkdown>
+          </div>
+        ));
+      };
+      
     return (
         <div className={styles.container}>
             <div className={styles.layout}></div>
