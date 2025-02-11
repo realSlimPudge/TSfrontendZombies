@@ -1,0 +1,56 @@
+services:
+    mongo:
+        image: mongo:latest
+        container_name: mongo
+        restart: always
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongo_data:/data/dbS
+        networks:
+            - planedu_network # Добавляем общую сеть
+
+    ollama:
+        image: ollama/ollama
+        ports:
+            - 11434:11434/tcp
+        volumes:
+            - /var/opt/data/ollama/ollama:/root/.ollama
+        runtime: nvidia
+        networks:
+            - planedu_network # Добавляем общую сеть
+
+    # frontend:
+    #     build: .
+    #     image: c0dys/frontend_planedu:latest
+    #     environment:
+    #         VITE_SERVER: http://localhost:8000
+    #     ports:
+    #         - 5173:5173/tcp
+    #     restart: always
+    #     container_name: frontend
+    #     depends_on:
+    #         - fastapi_app
+
+    fastapi_app:
+        image: c0dys/python-fastapi_app:latest
+        container_name: fastapi_app
+        restart: always
+        ports:
+            - "8000:8000"
+        environment:
+            MONGO_URL: "mongodb://mongo:27017"
+            OLLAMA_BASE_URL: "http://ollama:11434"
+            SEARXNG_BASE_URL: "http://searxng:8080"
+        depends_on:
+            - mongo
+            - ollama
+        networks:
+            - planedu_network # Добавляем общую сеть
+
+volumes:
+    mongo_data:
+
+networks:
+    planedu_network: # Определяем общую сеть
+        external: true

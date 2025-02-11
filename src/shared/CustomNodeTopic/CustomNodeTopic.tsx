@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../CustomNode/CustomNode.module.scss";
 import { Handle, Position } from "reactflow";
+import { useDispatch } from "react-redux";
+import {
+    addQuestions,
+    clearAllQuestions,
+    removeQuestions,
+} from "../slices/currentQuestionsSlice";
 
 interface CustomNodeTopicProps {
     data: {
@@ -14,6 +20,19 @@ const CustomNodeTopic: React.FC<CustomNodeTopicProps> = ({
     data: { label, isLeft, isRight },
 }) => {
     const [selected, setSelected] = useState<boolean>(false);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(clearAllQuestions());
+    }, []);
+
+    useEffect(() => {
+        if (selected) {
+            dispatch(addQuestions(label));
+        } else {
+            dispatch(removeQuestions(label));
+        }
+    }, [selected, label, dispatch]);
     return (
         <>
             {!isLeft && <Handle type="target" position={Position.Right} />}
@@ -23,7 +42,7 @@ const CustomNodeTopic: React.FC<CustomNodeTopicProps> = ({
                     setSelected(!selected);
                 }}
             >
-                <div>{label}</div>
+                <p>{label}</p>
             </div>
             {!isRight && <Handle type="target" position={Position.Left} />}
         </>

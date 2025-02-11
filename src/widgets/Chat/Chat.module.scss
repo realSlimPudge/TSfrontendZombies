@@ -38,6 +38,14 @@
 }
 .messageParagraph {
     margin-bottom: 10px;
+    ul {
+        padding-left: 1em; /* Общий отступ списка */
+        list-style-position: inside; /* Точки внутри блока */
+    }
+
+    li {
+        padding-left: 0.5em; /* Отступ текста от точки */
+    }
 }
 .user,
 .ai {

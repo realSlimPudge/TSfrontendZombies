@@ -45,7 +45,9 @@ const ChatHeader: React.FC = () => {
                         />
                     </div>
                     <div className={styles.btn}>
-                        <button>Получить тест</button>
+                        <button className={styles.getTest}>
+                            Получить тест
+                        </button>
                     </div>
                 </div>
             </div>

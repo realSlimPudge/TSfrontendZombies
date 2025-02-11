@@ -29,3 +29,12 @@
 .btn {
     height: 100%;
 }
+.getTest {
+    color: white;
+    background-color: transparent;
+    padding: 8px 12px;
+    outline: none;
+    border: 2px var(--primary-light-color) solid;
+    border-radius: 15px;
+    cursor: pointer;
+}

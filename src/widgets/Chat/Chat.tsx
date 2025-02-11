@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Chat.module.scss";
 import axios from "axios";
-import ChatHeader from "../../features/ChatHeader/ChatHeader";
-import ReactMarkdown from 'react-markdown';
-import remarkMath from 'remark-math';
-import rehypeMathjax from 'rehype-mathjax';
-
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeMathjax from "rehype-mathjax";
+import { useSelector } from "react-redux";
+import { RootState } from "../../shared/store/store";
 
 interface Message {
     id: string;
@@ -21,6 +21,11 @@ const Chat: React.FC = () => {
     const [searchActive, setSearchActive] = useState<boolean>(false);
     const [activeBtn, setActiveBtn] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
+
+    const questions = useSelector(
+        (state: RootState) => state.currentQuestions.questions
+    );
+    const questionsString = questions.join(",");
 
     const handlePress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (event.key === "Enter" && !event.shiftKey) {
@@ -64,7 +69,9 @@ const Chat: React.FC = () => {
         const eventSource = new EventSource(
             `${server}/${
                 searchActive ? "agent-stream" : "chat-stream"
-            }/?message=${encodeURIComponent(inputText)}`
+            }/?message=${encodeURIComponent(
+                inputText + ", в контексте следующих тем: " + questionsString
+            )}`
         );
 
         const updateResponse = (data: string) => {
@@ -144,19 +151,19 @@ const Chat: React.FC = () => {
 
     const formatText = (text: string) => {
         if (!text) return <p>Загрузка...</p>;
-      
+
         return text.split("/n").map((line, index) => (
-          <div key={index} className={styles.messageParagraph}>
-            <ReactMarkdown
-              remarkPlugins={[remarkMath]}
-              rehypePlugins={[rehypeMathjax]}
-            >
-              {line}
-            </ReactMarkdown>
-          </div>
+            <div key={index} className={styles.messageParagraph}>
+                <ReactMarkdown
+                    remarkPlugins={[remarkMath]}
+                    rehypePlugins={[rehypeMathjax]}
+                >
+                    {line}
+                </ReactMarkdown>
+            </div>
         ));
-      };
-      
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.layout}></div>

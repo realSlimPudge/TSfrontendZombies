@@ -7,6 +7,7 @@ import { RootState } from "../../shared/store/store";
 import RoadMap from "../../processes/RoadMap/RoadMap";
 import Chat from "../../widgets/Chat/Chat";
 import ChatHeader from "../../features/ChatHeader/ChatHeader";
+import LoaderDownload from "../../shared/LoaderDownload/LoaderDownload";
 
 const Roadmap: React.FC = () => {
     const { discipline, linkId } = useParams<{
@@ -23,7 +24,11 @@ const Roadmap: React.FC = () => {
     }, [discipline, dispatch]);
 
     if (loading) {
-        return <div>loading...</div>;
+        return (
+            <div className={styles.loaderContainer}>
+                <LoaderDownload />
+            </div>
+        );
     }
 
     if (error) {
